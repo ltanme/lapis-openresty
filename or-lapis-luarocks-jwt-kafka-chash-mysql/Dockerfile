@@ -10,10 +10,10 @@ LABEL maintainer="Evan Wies <evan@neomantra.net>"
 
 ARG RESTY_IMAGE_BASE="centos"
 ARG RESTY_IMAGE_TAG="7"
-ARG RESTY_LUAROCKS_VERSION="3.2.1"
+ARG RESTY_LUAROCKS_VERSION="3.9.0"
 ARG RESTY_YUM_REPO="https://openresty.org/package/centos/openresty.repo"
 ARG RESTY_RPM_FLAVOR=""
-ARG RESTY_RPM_VERSION="1.15.8.3-1"
+ARG RESTY_RPM_VERSION="1.21.4.1-1"
 ARG RESTY_RPM_DIST="el7"
 ARG RESTY_RPM_ARCH="x86_64"
 
@@ -59,7 +59,6 @@ RUN yum install -y yum-utils \
     && make install \
     && cd /tmp \
     && rm -rf luarocks-${RESTY_LUAROCKS_VERSION} luarocks-${RESTY_LUAROCKS_VERSION}.tar.gz \
-    && yum remove -y make \
     && yum clean all \
     && mkdir -p /var/run/openresty \
     && ln -sf /dev/stdout /usr/local/openresty/nginx/logs/access.log \
@@ -68,7 +67,7 @@ RUN yum install -y yum-utils \
 	&& /usr/local/openresty/luajit/bin/luarocks install ansicolors \
 	&& /usr/local/openresty/luajit/bin/luarocks install date \
 	&& /usr/local/openresty/luajit/bin/luarocks install etlua \
-	&& /usr/local/openresty/luajit/bin/luarocks install loadkit \ 
+	&& /usr/local/openresty/luajit/bin/luarocks install loadkit \
 	&& /usr/local/openresty/luajit/bin/luarocks install mimetypes \
 	&& /usr/local/openresty/luajit/bin/luarocks install pgmoon \
 	&& /usr/local/openresty/luajit/bin/luarocks install lpeg \
@@ -82,8 +81,8 @@ RUN yum install -y yum-utils \
 	&& /usr/local/openresty/luajit/bin/luarocks install lua-resty-kafka \
 	&& /usr/local/openresty/luajit/bin/luarocks install lua-resty-balancer \
 	&& /usr/local/openresty/luajit/bin/luarocks install lua-resty-jwt \
-	&& /usr/local/openresty/luajit/bin/luarocks install luaossl \ 
-	&& /usr/local/openresty/luajit/bin/luarocks install lapis 1.7.0-1 
+	&& /usr/local/openresty/luajit/bin/luarocks install luaossl \
+	&& /usr/local/openresty/luajit/bin/luarocks install lapis
 	
 
 # Unused, present for parity with other Dockerfiles
