@@ -82,6 +82,14 @@ RUN yum install -y yum-utils \
 	&& /usr/local/openresty/luajit/bin/luarocks install lua-resty-balancer \
 	&& /usr/local/openresty/luajit/bin/luarocks install lua-resty-jwt \
 	&& /usr/local/openresty/luajit/bin/luarocks install luaossl \
+	&& /usr/local/openresty/luajit/bin/luarocks install lua-resty-rsa \
+	&& /usr/local/openresty/luajit/bin/luarocks install lua-resty-timer \
+	&& /usr/local/openresty/luajit/bin/luarocks install lua-resty-lrucache \
+	&& /usr/local/openresty/luajit/bin/luarocks install lua-resty-mlcache \
+	&& /usr/local/openresty/luajit/bin/luarocks install lua-resty-qless \
+	&& /usr/local/openresty/luajit/bin/luarocks install lua-resty-http2 \
+	&& /usr/local/openresty/luajit/bin/luarocks install lua-resty-shcache \
+	&& /usr/local/openresty/luajit/bin/luarocks install resty-redis-cluster \
 	&& /usr/local/openresty/luajit/bin/luarocks install lapis
 	
 
